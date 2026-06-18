@@ -1,4 +1,3 @@
-import DashboardLayout from "../../components/layout/DashboardLayout";
 import SectionHeader from "../../components/articles/SectionHeader";
 import FeaturedArticleCard from "../../components/articles/FeaturedArticleCard";
 import WideArticleCard from "../../components/articles/WideArticleCard";
