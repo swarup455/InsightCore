@@ -41,30 +41,17 @@ export default function LoginPage() {
         <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 py-16 font-sans text-white antialiased selection:bg-white selection:text-black">
             <div
                 aria-hidden
-                className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[800px] -translate-x-1/2 rounded-full bg-zinc-800/20 blur-3xl"
+                className="pointer-events-none absolute left-1/2 top-0 h-120 w-200 -translate-x-1/2 rounded-full bg-zinc-800/20 blur-3xl"
             />
 
             <div className="relative w-full max-w-md">
-                {/* Logo */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    animate="visible"
-                    className="mb-8 flex justify-center relative"
+                <button
+                    onClick={() => navigate("/")}
+                    className="mb-3 flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-2 text-sm text-zinc-400 transition-all hover:border-zinc-700 hover:text-white"
                 >
-                    <button onClick={() => navigate("/")} className="absolute left-0 text-zinc-400 flex items-center gap-3 text-sm hover:text-zinc-300">
-                        <ArrowLeft size={20} />
-                        Home
-                    </button>
-                    <Link to="/" className="flex items-center gap-2.5">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-white">
-                            <span className="h-1.5 w-1.5 rounded-full bg-black" />
-                        </span>
-                        <span className="text-[15px] font-semibold tracking-tight text-white">
-                            InsightCore
-                        </span>
-                    </Link>
-                </motion.div>
+                    <ArrowLeft size={16} />
+                    <span>Home</span>
+                </button>
 
                 {/* Card */}
                 <motion.div

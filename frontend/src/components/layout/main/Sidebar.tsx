@@ -1,15 +1,15 @@
-import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
     Search,
+    Sparkles,
     Brain,
     FileBarChart,
     TrendingUp,
     Settings,
     LogOut,
     User,
-    Menu,
     X,
+    Home,
 } from "lucide-react";
 
 interface NavItem {
@@ -18,9 +18,14 @@ interface NavItem {
     href: string;
 }
 
+interface SidebarProps {
+    mobileOpen: boolean;
+    setMobileOpen: (open: boolean) => void;
+}
+
 const TOP_NAV: NavItem[] = [
-    { icon: Search, label: "Search", href: "/dashboard" },
-    { icon: Brain, label: "Analysis", href: "/dashboard/analysis" },
+    { icon: Home, label: "Home", href: "/dashboard/home" },
+    { icon: Sparkles, label: "Insight", href: "/dashboard/insight" },
     { icon: FileBarChart, label: "Reports", href: "/dashboard/reports" },
     { icon: TrendingUp, label: "Trends", href: "/dashboard/trends" },
 ];
@@ -30,10 +35,9 @@ const BOTTOM_NAV: NavItem[] = [
     { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ mobileOpen, setMobileOpen }: SidebarProps) {
     const navigate = useNavigate();
     const location = useLocation();
-    const [mobileOpen, setMobileOpen] = useState(false);
 
     const isActive = (href: string) => location.pathname === href;
 
@@ -54,8 +58,8 @@ export default function Sidebar() {
                         key={label}
                         onClick={() => { navigate(href); setMobileOpen(false); }}
                         className={`flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm transition-colors text-left ${isActive(href)
-                                ? "bg-zinc-800 text-white"
-                                : "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900"
+                            ? "bg-zinc-800 text-white"
+                            : "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900"
                             }`}
                     >
                         <Icon size={16} />
@@ -69,7 +73,7 @@ export default function Sidebar() {
                 {BOTTOM_NAV.map(({ icon: Icon, label, href }) => (
                     <button
                         key={label}
-                        onClick={() => navigate(href)}
+                        onClick={() => { navigate(href); setMobileOpen(false); }}
                         className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900 transition-colors text-left"
                     >
                         <Icon size={16} />
@@ -89,14 +93,6 @@ export default function Sidebar() {
 
     return (
         <>
-            {/* Mobile toggle */}
-            <button
-                className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 md:hidden"
-                onClick={() => setMobileOpen((v) => !v)}
-            >
-                {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-
             {/* Mobile overlay */}
             {mobileOpen && (
                 <div
@@ -110,6 +106,15 @@ export default function Sidebar() {
                 className={`fixed left-0 top-0 z-40 h-full w-56 bg-black border-r border-zinc-800 transition-transform duration-200 md:hidden ${mobileOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
+                <div className="flex justify-end p-2">
+                    <button
+                        onClick={() => setMobileOpen(false)}
+                        aria-label="Close sidebar menu"
+                        className="p-2 rounded-lg text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900"
+                    >
+                        <X size={18} />
+                    </button>
+                </div>
                 <NavContent />
             </aside>
 

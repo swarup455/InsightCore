@@ -1,5 +1,5 @@
-import type { NavCategory } from "../../types/category.types";
-import { NAV_CATEGORIES } from "../../types/category.types";
+import type { NavCategory } from "../../../types/category.types";
+import { NAV_CATEGORIES } from "../../../types/category.types";
 
 const CATEGORY_ICONS: Record<NavCategory, string> = {
   All: "🔎",

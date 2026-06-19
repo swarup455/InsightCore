@@ -20,7 +20,7 @@ export default function FeaturedArticleCard({ article }: FeaturedArticleCardProp
     return (
         <div
             className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 cursor-pointer group"
-            onClick={() => navigate(`/article/${article.id}`)}
+            onClick={() => navigate(`/dashboard/home/article/${article.id}`)}
         >
             {/* Image */}
             <div className="relative h-64 sm:h-80 overflow-hidden">
@@ -59,7 +59,7 @@ export default function FeaturedArticleCard({ article }: FeaturedArticleCardProp
                     </div>
                     <button
                         className="flex items-center gap-1.5 rounded-md bg-white px-3 py-1.5 text-xs font-medium text-black hover:bg-zinc-200 transition-colors"
-                        onClick={(e) => { e.stopPropagation(); navigate(`/article/${article.id}`); }}
+                        onClick={(e) => { e.stopPropagation(); navigate(`/dashboard/home/article/${article.id}`); }}
                     >
                         Read More
                         <ArrowRight size={11} />

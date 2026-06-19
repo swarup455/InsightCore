@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Clock, ExternalLink, Sparkles, BookOpen } from "lucide-react";
-import WideArticleCard from "../../components/articles/WideArticleCard";
+import WideArticleCard from "../../components/article/WideArticleCard";
 import { getArticleById, getRelatedArticles } from "../../data/mockData";
 
 export default function ArticlePage() {
