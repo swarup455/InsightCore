@@ -49,7 +49,7 @@ export default function InsightHero({ freeRemaining = 5 }: InsightHeroProps) {
 
         // Simulate analysis delay, then navigate to first mock insight
         await new Promise((r) => setTimeout(r, 1800));
-        navigate("/dashboard/insight/insight-001");
+        navigate("/dashboard/analyze/analyze-001");
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -67,10 +67,13 @@ export default function InsightHero({ freeRemaining = 5 }: InsightHeroProps) {
             </div>
 
             {/* Headline */}
-            <h1 className="mb-4 flex items-center gap-3 max-w-5xl text-4xl sm:text-5xl font-semibold tracking-tight text-white leading-[1.12]">
+            <h1 className="mb-4 flex flex-col xl:flex-row items-center gap-2 max-w-5xl text-3xl sm:text-5xl font-semibold tracking-tight text-white leading-[1.12]">
                 Turn Articles Into
-                <span className="block text-zinc-500">
-                    AI-Powered Intelligence.
+                <span className="flex items-center gap-2 text-red-500">
+                    AI-Powered
+                    <span className="block text-white">
+                        Intelligence.
+                    </span>
                 </span>
             </h1>
 

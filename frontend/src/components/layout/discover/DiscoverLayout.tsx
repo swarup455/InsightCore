@@ -4,11 +4,11 @@ import { Outlet, useSearchParams } from "react-router-dom";
 import CategoryBar from "./CategoryBar";
 import { useLocation } from "react-router-dom";
 
-export default function HomeLayout() {
+export default function DiscoverLayout() {
     const [searchParams, setSearchParams] = useSearchParams();
     const activeCategory = (searchParams.get("category") ?? "All") as NavCategory | "All";
     const location = useLocation();
-    const isHomePage = location.pathname === "/dashboard/home";
+    const isDiscoverPage = location.pathname === "/dashboard/discover";
 
     const handleCategoryChange = (category: NavCategory | "All") => {
         setSearchParams(category === "All" ? {} : { category });
@@ -16,8 +16,8 @@ export default function HomeLayout() {
 
     return (
         <div className="flex-1 flex flex-col min-w-0">
-            {isHomePage && <SearchHero />}
-            {isHomePage && (
+            {isDiscoverPage && <SearchHero />}
+            {isDiscoverPage && (
                 <CategoryBar
                     activeCategory={activeCategory}
                     onCategoryChange={handleCategoryChange}

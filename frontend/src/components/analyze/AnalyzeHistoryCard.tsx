@@ -39,7 +39,7 @@ export default function InsightHistoryCard({
 
     return (
         <button
-            onClick={() => navigate(`/dashboard/insight/${insight.id}`)}
+            onClick={() => navigate(`/dashboard/analyze/${insight.id}`)}
             className="group w-full text-left rounded-xl border border-zinc-800 bg-zinc-950 p-4 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-200"
         >
             <div className="flex items-start justify-between gap-3">

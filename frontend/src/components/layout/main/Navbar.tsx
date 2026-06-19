@@ -1,6 +1,7 @@
 import { Menu, Sparkles } from "lucide-react";
 import AvatarDropdown from "./AvatarDropdown";
 import { getPageMeta } from "../../../data/getPageMeta";
+import { useNavigate } from "react-router-dom";
 
 export interface NavbarProps {
   /** Current pathname, used to resolve title + subtitle. e.g. from useLocation().pathname */
@@ -32,7 +33,6 @@ export default function Navbar({
   avatarUrl,
   plan = "Free plan",
   showUpgrade = true,
-  onUpgradeClick,
   onProfile,
   onSettings,
   onAbout,
@@ -42,6 +42,7 @@ export default function Navbar({
   onLogout,
 }: NavbarProps) {
   const { title, subtitle } = getPageMeta(pathname);
+  const navigate = useNavigate();
 
   return (
     <header className="flex h-14 items-center justify-between border-b border-zinc-800 bg-black px-4 sm:px-6">
@@ -69,7 +70,7 @@ export default function Navbar({
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         {showUpgrade && (
           <button
-            onClick={onUpgradeClick}
+            onClick={() => navigate("/dashboard/upgrade")}
             aria-label="Upgrade plan"
             className="flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-sm font-medium text-zinc-300 transition-colors hover:border-zinc-700 hover:text-white"
           >

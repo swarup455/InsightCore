@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Search } from "lucide-react";
 import { useState } from "react";
-import InsightHistoryCard from "../../components/insight/InsightHistoryCard";
+import InsightHistoryCard from "../../components/analyze/AnalyzeHistoryCard";
 import { MOCK_INSIGHTS } from "../../data/mockInsights";
 
 export default function InsightHistoryPage() {

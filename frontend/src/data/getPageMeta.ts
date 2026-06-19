@@ -10,9 +10,9 @@ const DEFAULT_META: PageMeta = {
 
 const ROUTE_META: { test: (path: string) => boolean; meta: PageMeta }[] = [
     {
-        test: (p) => p === "/" || p === "/home",
+        test: (p) => p === "/" || p === "/discover",
         meta: {
-            title: "Home",
+            title: "Discover",
             subtitle: "Explore what's happening today",
         },
     },

@@ -1,19 +1,21 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import LogoutPopup from "../../common/LogoutPopup";
+import { useState } from "react";
 import {
-    Search,
+    Compass,
     Sparkles,
-    Brain,
-    FileBarChart,
-    TrendingUp,
-    Settings,
-    LogOut,
+    LayoutDashboard,
     User,
+    Bell,
+    Settings,
+    Crown,
     X,
-    Home,
+    LogOut,
+    Radar
 } from "lucide-react";
 
 interface NavItem {
-    icon: typeof Search;
+    icon: typeof User;
     label: string;
     href: string;
 }
@@ -24,20 +26,23 @@ interface SidebarProps {
 }
 
 const TOP_NAV: NavItem[] = [
-    { icon: Home, label: "Home", href: "/dashboard/home" },
-    { icon: Sparkles, label: "Insight", href: "/dashboard/insight" },
-    { icon: FileBarChart, label: "Reports", href: "/dashboard/reports" },
-    { icon: TrendingUp, label: "Trends", href: "/dashboard/trends" },
+    { icon: Radar, label: "Monitor", href: "/dashboard/monitor" },
+    { icon: Compass, label: "Discover", href: "/dashboard/discover" },
+    { icon: Sparkles, label: "Analyze", href: "/dashboard/analyze" },
+    { icon: LayoutDashboard, label: "Overview", href: "/dashboard/overview" },
 ];
 
 const BOTTOM_NAV: NavItem[] = [
     { icon: User, label: "Profile", href: "/dashboard/profile" },
+    { icon: Crown, label: "Upgrade", href: "/dashboard/upgrade" },
+    { icon: Bell, label: "Notifications", href: "/dashboard/notifications" },
     { icon: Settings, label: "Settings", href: "/dashboard/settings" },
 ];
 
 export default function Sidebar({ mobileOpen, setMobileOpen }: SidebarProps) {
     const navigate = useNavigate();
     const location = useLocation();
+    const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
     const isActive = (href: string) => location.pathname === href;
 
@@ -81,7 +86,7 @@ export default function Sidebar({ mobileOpen, setMobileOpen }: SidebarProps) {
                     </button>
                 ))}
                 <button
-                    onClick={() => navigate("/login")}
+                    onClick={() => setShowLogoutPopup(true)}
                     className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-zinc-500 hover:text-red-400 hover:bg-zinc-900 transition-colors text-left"
                 >
                     <LogOut size={16} />
@@ -122,6 +127,14 @@ export default function Sidebar({ mobileOpen, setMobileOpen }: SidebarProps) {
             <aside className="hidden md:flex w-56 shrink-0 flex-col h-screen sticky top-0 bg-black border-r border-zinc-800">
                 <NavContent />
             </aside>
+            {showLogoutPopup && (
+                <LogoutPopup
+                    open={showLogoutPopup}
+                    userName="Swarup Das"
+                    onConfirm={() => { navigate("/login") }}
+                    onCancel={() => setShowLogoutPopup(false)}
+                />
+            )}
         </>
     );
 }

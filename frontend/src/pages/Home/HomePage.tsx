@@ -1,7 +1,7 @@
-import SectionHeader from "../../components/article/SectionHeader";
-import FeaturedArticleCard from "../../components/article/FeaturedArticleCard";
-import WideArticleCard from "../../components/article/WideArticleCard";
-import SquareArticleCard from "../../components/article/SquareArticleCard";
+import SectionHeader from "../../components/discover/SectionHeader";
+import FeaturedArticleCard from "../../components/discover/FeaturedArticleCard";
+import WideArticleCard from "../../components/discover/WideArticleCard";
+import SquareArticleCard from "../../components/discover/SquareArticleCard";
 import {
     getFeaturedArticle,
     getNewsSectionArticles,
@@ -10,7 +10,7 @@ import {
     MOCK_ARTICLES,
 } from "../../data/mockData";
 
-export default function HomePage() {
+export default function DiscoverPage() {
     const featured = getFeaturedArticle();
     const newsArticles = getNewsSectionArticles();
     const researchArticles = getResearchSectionArticles();

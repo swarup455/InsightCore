@@ -9,10 +9,10 @@ import {
     Check,
     Search,
 } from "lucide-react";
-import InsightSummaryCard from "../../components/insight/InsightSummaryCard";
-import InsightKeyInsights from "../../components/insight/InsightKeyInsights";
-import RelatedArticles from "../../components/insight/RelatedArticles";
-import RelatedWebSources from "../../components/insight/RelatedWebSources";
+import InsightSummaryCard from "../../components/analyze/AnalyzeSummaryCard";
+import InsightKeyInsights from "../../components/analyze/AnalyzeKeyInsights";
+import RelatedArticles from "../../components/analyze/AnalyzeArticles";
+import RelatedWebSources from "../../components/analyze/RelatedWebSources";
 import { getInsightById } from "../../data/mockInsights";
 import { generateShareLink } from "../../utils/generateShareLink";
 

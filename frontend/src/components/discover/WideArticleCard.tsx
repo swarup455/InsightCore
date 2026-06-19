@@ -20,7 +20,7 @@ export default function WideArticleCard({ article }: WideArticleCardProps) {
     return (
         <div
             className="group flex gap-4 rounded-xl border border-zinc-800 bg-zinc-950 p-4 cursor-pointer hover:border-zinc-700 transition-colors"
-            onClick={() => navigate(`/dashboard/home/article/${article.id}`)}
+            onClick={() => navigate(`/dashboard/discover/article/${article.id}`)}
         >
             {/* Thumbnail */}
             <div className="relative w-24 h-20 shrink-0 overflow-hidden rounded-lg">

@@ -11,7 +11,7 @@ export default function SquareArticleCard({ article }: SquareArticleCardProps) {
     return (
         <div
             className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 cursor-pointer hover:border-zinc-700 transition-colors aspect-square"
-            onClick={() => navigate(`/dashboard/home/article/${article.id}`)}
+            onClick={() => navigate(`/dashboard/discover/article/${article.id}`)}
         >
             {/* Image */}
             <img

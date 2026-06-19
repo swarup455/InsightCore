@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { History, ArrowRight } from "lucide-react";
-import InsightHero from "../../components/insight/InsightHero";
-import InsightHistoryCard from "../../components/insight/InsightHistoryCard";
+import InsightHero from "../../components/analyze/AnalyzeHero";
+import InsightHistoryCard from "../../components/analyze/AnalyzeHistoryCard";
 import { getRecentInsights } from "../../data/mockInsights";
 
 export default function InsightPage() {
@@ -16,7 +16,7 @@ export default function InsightPage() {
             {/* Secondary action — History */}
             <div className="flex items-center justify-center mb-12">
                 <button
-                    onClick={() => navigate("/dashboard/insight/history")}
+                    onClick={() => navigate("/dashboard/analyze/history")}
                     className="flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
                 >
                     <History size={14} />
@@ -32,7 +32,7 @@ export default function InsightPage() {
                         <span className="text-xs text-zinc-600">{recent.length}</span>
                     </div>
                     <button
-                        onClick={() => navigate("/dashboard/insight/history")}
+                        onClick={() => navigate("/dashboard/analyze/history")}
                         className="flex items-center gap-1 text-xs text-zinc-500 hover:text-white transition-colors"
                     >
                         View All History
